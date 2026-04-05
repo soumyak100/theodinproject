@@ -82,8 +82,64 @@ body {
 }
 
 .hero-img-container img {
-  display: block;
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.random-info-container {
+  display: flex;
+  padding: 5rem 25rem 5rem 25rem;
+}
+
+.random-info-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.random-info-content h2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #1f2937;
+}
+
+.random-info-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.random-info-list-item {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.random-info-image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.quote-container {
+  display: flex;
+  padding: 5rem 25rem 5rem 25rem;
+  background-color: #e5e7eb;
+}
+
+.quote-content .quote {
+  font-size: 36px;
+  font-weight: 300;
+  color: #1f2937;
+  font-style: italic;
+}
+
+.quote-content .author {
+  text-align: right;
+  font-size: 24px;
+  font-weight: 900;
 }
