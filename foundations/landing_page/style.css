@@ -88,7 +88,6 @@ body {
 }
 
 .random-info-container {
-  display: flex;
   padding: 5rem 25rem 5rem 25rem;
 }
 
@@ -126,7 +125,6 @@ body {
 }
 
 .quote-container {
-  display: flex;
   padding: 5rem 25rem 5rem 25rem;
   background-color: #e5e7eb;
 }
@@ -142,4 +140,39 @@ body {
   text-align: right;
   font-size: 24px;
   font-weight: 900;
+}
+
+.sign-up-container {
+  padding: 5rem 25rem 5rem 25rem;
+}
+
+.sign-up-content {
+  background-color: #3882f6;
+  border-radius: 0.5rem;
+  padding: 3rem 10rem 3rem 10rem;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+}
+
+.sign-up-content .main-text {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.sign-up-content button {
+  background-color: #3882f6;
+  color: #f9faf8;
+  padding: 0.2rem 3rem 0.2rem 3rem;
+  border-radius: 0.5rem;
+  border: 2px solid #f9faf8;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.footer-container {
+  padding: 3rem 25rem 3rem 25rem;
+  text-align: center;
+  background-color: #1f2937;
+  color: #f9faf8;
 }
