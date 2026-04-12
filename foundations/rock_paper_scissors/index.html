@@ -3,7 +3,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Rock Paper Scissors</title>
-	<script src="script.js"></script>
+	<script src="script.js" defer></script>
 </head>
 <html>
+	<body>
+		<button id="btn-rock">Rock</button>
+		<button id="btn-paper">Paper</button>
+		<button id="btn-scissors">Scissors</button>
+		<button id="btn-reset">Reset</button>
+		<div>
+			<div><p>Human:<span id="human-score"></span></p></div>
+			<div><p>Computer:<span id="computer-score"></span></p></div>
+			<div id="round-message"></div>
+		</div>
+		<div><h2 id="final-message"></h2></div>
+	</body>
 </html>

@@ -16,16 +16,16 @@ function getHumanChoice() {
 }
 
 function capitalizeFirstLetter(val) {
-    return String(val).charAt(0).toUpperCase() + String(val).slice(1).toLowerCase();
+	return String(val).charAt(0).toUpperCase() + String(val).slice(1).toLowerCase();
 }
 
-function printMessage(result, humanChoice, computerChoice) {
+function getMessage(result, humanChoice, computerChoice) {
 	if (result > 0) {
-		console.log("You win! " + capitalizeFirstLetter(humanChoice) + " beats " + capitalizeFirstLetter(computerChoice));
+		return ("You win! " + capitalizeFirstLetter(humanChoice) + " beats " + capitalizeFirstLetter(computerChoice));
 	} else if (result < 0) {
-		console.log("You lose! " + capitalizeFirstLetter(computerChoice) + " beats " + capitalizeFirstLetter(humanChoice));
+		return ("You lose! " + capitalizeFirstLetter(computerChoice) + " beats " + capitalizeFirstLetter(humanChoice));
 	} else {
-		console.log("It's a draw!");
+		return ("It's a draw!");
 	}
 }
 
@@ -35,69 +35,58 @@ function playGame() {
 	let humanChoice = "";
 	let computerChoice = "";
 	let result = 0;
-	// Round 1
-	humanChoice = getHumanChoice();
-	computerChoice = getComputerChoice();
-	result = playRound(humanChoice, computerChoice);
-	if (result < 0) {
-		computerScore += 1;
-	} else if (result > 0) {
-		humanScore += 1;
-	}	
-	printMessage(result, humanChoice, computerChoice);
-
-	//Round 2
-	humanChoice = getHumanChoice();
-	computerChoice = getComputerChoice();
-	result = playRound(humanChoice, computerChoice);
-	if (result < 0) {
-		computerScore += 1;
-	} else if (result > 0) {
-		humanScore += 1;
-	}
-	printMessage(result, humanChoice, computerChoice);
-
-	//Round 3
-	humanChoice = getHumanChoice();
-	computerChoice = getComputerChoice();
-	result = playRound(humanChoice, computerChoice);
-	if (result < 0) {
-		computerScore += 1;
-	} else if (result > 0) {
-		humanScore += 1;
-	}
-	printMessage(result, humanChoice, computerChoice);
-
-	//Round 4
-	humanChoice = getHumanChoice();
-	computerChoice = getComputerChoice();
-	result = playRound(humanChoice, computerChoice);
-	if (result < 0) {
-		computerScore += 1;
-	} else if (result > 0) {
-		humanScore += 1;
-	}
-	printMessage(result, humanChoice, computerChoice);
-
-	//Round 5
-	humanChoice = getHumanChoice();
-	computerChoice = getComputerChoice();
-	result = playRound(humanChoice, computerChoice);
-	if (result < 0) {
-		computerScore += 1;
-	} else if (result > 0) {
-		humanScore += 1;
-	}
-	printMessage(result, humanChoice, computerChoice);
-
-	//Print final message
-	if (humanScore > computerScore) {
-		console.log("You win!");
-	} else if (humanScore < computerScore) {
-		console.log("You lose!");
-	} else {
-		console.log("It is a draw!");
-	}
+	let round = 0;
+	const btnRock = document.querySelector("#btn-rock");
+	const btnPaper = document.querySelector("#btn-paper");
+	const btnScissor = document.querySelector("#btn-scissors");
+	const btnReset = document.querySelector("#btn-reset");
+	const humanScoreText = document.querySelector("#human-score");
+	const computerScoreText = document.querySelector("#computer-score");
+	const roundMessageText = document.querySelector("#round-message");
+	const finalMessageText = document.querySelector("#final-message");
+	humanScoreText.textContent = humanScore;
+	computerScoreText.textContent = computerScore;
+	btnReset.onclick = () => {
+		humanScore = 0;
+		computerScore = 0;
+		humanChoice = "";
+		computerChoice = "";
+		result = 0;
+		round = 0;
+		humanScoreText.textContent = humanScore;
+		computerScoreText.textContent = computerScore;
+		roundMessageText.innerHTML = "";
+		finalMessageText.textContent = "";
+	};
+	[btnRock, btnPaper, btnScissor].map((btn) => btn.onclick = () => {
+		humanChoice = btn.textContent;
+		computerChoice = getComputerChoice();
+		if (round < 5) {
+			result = playRound(humanChoice, computerChoice);
+			if (result < 0) {
+				computerScore += 1;
+			} else if (result > 0) {
+				humanScore += 1;
+			}	
+			round += 1;
+			humanScoreText.textContent = humanScore;
+			computerScoreText.textContent = computerScore;
+			const para = document.createElement("p");
+			para.textContent = "Round " + round + ": " + getMessage(result, humanChoice, computerChoice);
+			roundMessageText.innerHTML += para.outerHTML;
+		}
+		if (round == 5) {
+			//Print final message
+			if (humanScore > computerScore) {
+				finalMessageText.textContent = "You win!";
+			} else if (humanScore < computerScore) {
+				finalMessageText.textContent = "You lose!";
+			} else {
+				finalMessageText.textContent = "It is a draw!";
+			}
+			round = 6;
+		}
+	});
 }
 
 
@@ -134,6 +123,5 @@ function playRound(humanChoice, computerChoice) {
 
 	return 0;
 }
-
 
 playGame();
