@@ -1,23 +1,54 @@
-const contentArea = document.querySelector("#content-area");
-for (let i = 0; i < 16; i++) {
-  let row = document.createElement("div");
-  row.classList.add(`row`);
-  for (let j = 0; j < 16; j++) {
-    row.innerHTML += `<div class="pixel"></div>`;
+function setNumberOfPixel(numberOfPixels) {
+  const contentArea = document.querySelector("#content-area");
+  for (let i = 0; i < numberOfPixels; i++) {
+    let row = document.createElement("div");
+    row.classList.add(`row`);
+    for (let j = 0; j < numberOfPixels; j++) {
+      row.innerHTML += `<div class="pixel"></div>`;
+    }
+    contentArea.innerHTML += row.outerHTML;
   }
-  contentArea.innerHTML += row.outerHTML;
 }
 
-const pixels = document.querySelectorAll(".pixel");
-for (const pixel of pixels) {
-  pixel.addEventListener("mouseenter", () =>
-    pixel.classList.add("pixel-selected"),
-  );
+function clearGrid() {
+  const contentArea = document.querySelector("#content-area");
+  contentArea.innerHTML = "";
 }
 
-const resetBtn = document.querySelector("#reset-btn");
-resetBtn.addEventListener("click", () => {
+function setPixelEventListeners(numberOfPixels) {
+  const pixels = document.querySelectorAll(".pixel");
+  const maxWidth = document.querySelector("#content-area").clientWidth;
+  for (const pixel of pixels) {
+    pixel.style.width = maxWidth / numberOfPixels + "px";
+    pixel.style.height = maxWidth / numberOfPixels + "px";
+    pixel.addEventListener("mouseenter", () =>
+      pixel.classList.add("pixel-selected"),
+    );
+  }
+}
+
+const btnReset = document.querySelector("#btn-reset");
+btnReset.addEventListener("click", () => {
+  const pixels = document.querySelectorAll(".pixel");
   for (const pixel of pixels) {
     pixel.classList.remove("pixel-selected");
   }
 });
+
+const btnSet = document.querySelector("#btn-set");
+btnSet.addEventListener("click", () => {
+  const numberOfPixels = prompt(
+    "Enter a number for number of pixels in a row:",
+  );
+
+  if (numberOfPixels < 16 || numberOfPixels > 100) {
+    alert("The number should be less than 16 and greater than 100");
+  } else {
+    clearGrid();
+    setNumberOfPixel(numberOfPixels);
+    setPixelEventListeners(numberOfPixels);
+  }
+});
+
+setNumberOfPixel(16);
+setPixelEventListeners(16);
