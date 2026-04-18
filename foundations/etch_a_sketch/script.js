@@ -21,9 +21,12 @@ function setPixelEventListeners(numberOfPixels) {
   for (const pixel of pixels) {
     pixel.style.width = maxWidth / numberOfPixels + "px";
     pixel.style.height = maxWidth / numberOfPixels + "px";
-    pixel.addEventListener("mouseenter", () =>
-      pixel.classList.add("pixel-selected"),
-    );
+    pixel.addEventListener("mouseenter", () => {
+      const randomNum = Math.random();
+      pixel.style.backgroundColor = `#${randomNum
+        .toString(16)
+        .substring(2, 8)}`;
+    });
   }
 }
 
@@ -31,7 +34,7 @@ const btnReset = document.querySelector("#btn-reset");
 btnReset.addEventListener("click", () => {
   const pixels = document.querySelectorAll(".pixel");
   for (const pixel of pixels) {
-    pixel.classList.remove("pixel-selected");
+    pixel.style.backgroundColor = "lightgray";
   }
 });
 
