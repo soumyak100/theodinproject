@@ -85,6 +85,14 @@ function operate(num1, num2, operator) {
   }
 }
 
+function handleFloatingPoint(btnText) {
+  if (btnText === ".") {
+    if (operator === "") {
+      outputBoxText += ".";
+    }
+  }
+}
+
 const btnOps = document.querySelectorAll(".btn-op");
 for (const btnOp of btnOps) {
   btnOp.addEventListener("click", () => {
