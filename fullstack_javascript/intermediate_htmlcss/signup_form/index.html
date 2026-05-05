@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Signup Form</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="side-img">
+				<p>ODIN</p>
+			</div>
+            <div class="form-container">
+                <div class="form-header">
+					<p>The Odin Project</p>
+					<p>Sign up</p>
+                </div>
+                <div>
+					<p class="form-header">Let's do this</p>
+                    <form action="#" method="POST">
+						<div class="form-fields">
+						<div class="form-row">
+							<label class="form-label">
+								FIRST NAME
+								<input type="text" name="firstname" required/>
+							</label>
+							<label class="form-label">
+								LAST NAME
+								<input type="text" />
+							</label>
+                        </div>
+						<div class="form-row">
+							<label class="form-label">
+								EMAIL
+								<input type="email" required/>
+							</label>
+							<label class="form-label">
+								PHONE NUMBER
+								<input type="text" maxlength="10" minlength="10"/>
+							</label>
+						</div>
+                        <div class="form-row">
+							<label class="form-label">
+								PASSWORD
+								<input type="password" required/>
+							</label>
+							<label class="form-label">
+								CONFIRM PASSWORD
+								<input type="password" required/>
+							</label>
+                        </div>
+						</div>
+						<div class="btn-container">
+						<button type="submit">Create Account</button>
+						</div>
+                    </form>
+                </div>
+                <div class="login-msg">Already have an account? <a href="#">Login</a></div>
+            </div>
+        </div>
+    </body>
+</html>

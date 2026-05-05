@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+	margin: 0;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+}
+
+/* Image styles */
+.side-img {
+	height: 100vh;
+	background-image: url("sideimg.jpg");
+	width: 900px;
+}
+
+.side-img p {
+	background-color: rgba(0,0,0, 0.4);
+	color: white;
+	text-align: center;
+	font-size: 5rem;
+	margin-top: 15rem;
+}
+
+img {
+	display: block;
+	height: 100%;
+	object-fit: cover;
+}
+
+
+/* Form styles */
+.form-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
+}
+
+.form-header {
+    font-size: 1.5rem;
+	font-weight: 600;
+	padding-left: 5rem;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.form-fields {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	box-shadow: 0px 6px 10px lightgray;
+	padding-bottom: 2rem;
+}
+
+.form-row {
+	display: flex;
+	font-size: 0.75rem;
+	gap: 2rem;
+	padding-left: 5rem;
+}
+
+.form-label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.form-label input {
+	padding: 0.4rem 1rem;
+	border: 1px solid gray;
+	border-radius: 4px;
+}
+
+.form-label input:focus {
+	outline: 1px solid blue;
+}
+
+.form-label input:invalid {
+	outline: 1px solid red;
+}
+
+.btn-container {
+	padding-left: 5rem;
+}
+
+button {
+	background-color: seagreen;
+	color: white;
+	padding: 0.5rem 2rem;
+	font-size: 1.25rem;
+	border-radius: 5px;
+	border: 0px;
+}
+
+.login-msg {
+	padding-left: 5rem;
+}
+
+.login-msg a {
+	text-decoration: none;
+	color: seagreen;
+	font-weight: 600;
+}
