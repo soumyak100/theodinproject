@@ -17,14 +17,27 @@ body {
 	height: 100vh;
 	background-image: url("sideimg.jpg");
 	width: 900px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.side-img p {
+.side-img .logo {
 	background-color: rgba(0,0,0, 0.4);
 	color: white;
 	text-align: center;
 	font-size: 5rem;
 	margin-top: 15rem;
+}
+
+.side-img .credit {
+	color: white;
+	font-size: 1rem;
+	text-align: center;
+}
+
+.credit a {
+	color: white;
 }
 
 img {
